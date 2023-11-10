@@ -1,0 +1,15 @@
+eureka.client.serviceUrl.defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+spring.application.name: api-gateway
+server.port: 8181
+spring:
+    cloud:
+        gateway:
+            routes:
+                - id: rule-engine
+                  uri: lb://rule-engine
+                  predicates:
+                    - Method=GET,POST,PATCH,DELETE
+                    - Path=/rule-engine/**
+jwt:
+  secret: AvHGRK8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadweheufHNyG
+
