@@ -7,20 +7,30 @@ services:
     ports:
       - 8181:8181
     build: /api-gateway
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-server:8761/eureka
   auth-service:
     ports:
       - 9004:9004
     build: /auth-service
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-server:8761/eureka
   quotation-management-system:
     ports:
       - 9098:9098
     build: /quotation-management-system
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-server:8761/eureka
   product-management-system:
     ports:
       - 9091:9091
     build: /product-management-system
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-server:8761/eureka
   rule-engine:
     ports:
       - 9095:9095
     build: /rule-engine
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://discovery-server:8761/eureka
   
